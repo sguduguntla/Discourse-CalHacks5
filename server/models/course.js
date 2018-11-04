@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const CourseSchema = new Schema({
     name: String,
     description: String,
-    enrollment_key: {
+    class_key: {
         type: String,
         default: () => {
             const text = "";

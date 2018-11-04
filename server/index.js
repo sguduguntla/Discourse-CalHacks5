@@ -2,9 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser')
 const keys = require('./config/keys');
-require('./models/User');
-require('./services/passport'); //not returning anything
+
 
 mongoose.Promise = global.Promise;
 
@@ -13,7 +13,16 @@ mongoose.connection.once('open', () => console.log('Good to go')).on('error', (e
     console.warn('Warning', error)
 });
 
+require('./models/User');
+require('./models/Course');
+require('./services/passport'); //not returning anything
+
 const app = express();
+
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 
 app.use(
     cookieSession({
