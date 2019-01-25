@@ -15,6 +15,8 @@ mongoose.connection.once('open', () => console.log('Good to go')).on('error', (e
 
 require('./models/User');
 require('./models/Course');
+require('./models/Post');
+require('./models/FriendRequest');
 require('./services/passport'); //not returning anything
 
 const app = express();

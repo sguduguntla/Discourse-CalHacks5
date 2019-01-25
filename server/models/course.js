@@ -7,7 +7,7 @@ const CourseSchema = new Schema({
     class_key: {
         type: String,
         default: () => {
-            const text = "";
+            var text = "";
             var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
             for (var i = 0; i < 5; i++) {
@@ -18,6 +18,9 @@ const CourseSchema = new Schema({
         },
         unique: true
     },
+    numUsers: 0,
+    category: String,
+    number: String,
     createdAt: {
         type: Date,
         default: Date.now
@@ -26,16 +29,6 @@ const CourseSchema = new Schema({
         type: Date,
         default: Date.now
     }
-});
-
-CourseSchema.pre('remove', (next) => {
-    const User = mongoose.model('user');
-
-    User.find({
-        courses: this._id
-    }).then((users) => {
-        users.forEach(user => user.courses.splice(user.courses.indexOf(this._id), 1))
-    });
 });
 
 const Course = mongoose.model('course', CourseSchema);

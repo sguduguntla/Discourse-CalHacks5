@@ -2,12 +2,12 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-    title: String,
-    topic: String,
+    topics: [String],
     content: String,
     approved: Boolean,
     gsi_votes: 0,
     student_votes: 0,
+    likes: 0,
     course: {
         type: Schema.Types.ObjectId,
         ref: 'course'
@@ -20,6 +20,10 @@ const PostSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    likedBy: [{
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    }],
     updatedAt: {
         type: Date,
         default: Date.now

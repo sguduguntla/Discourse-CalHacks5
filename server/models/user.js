@@ -19,9 +19,14 @@ const UserSchema = new Schema({
         type: String,
         minlength: 6
     },
+    num_courses: 0,
     courses: [{
         type: Schema.Types.ObjectId,
         ref: 'course'
+    }],
+    friends: [{
+        type: Schema.Types.ObjectId,
+        ref: 'user'
     }],
     reputation: 0,
     bio: String,
