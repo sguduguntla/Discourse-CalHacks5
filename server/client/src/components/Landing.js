@@ -6,9 +6,8 @@ const Landing = () => {
         <div>
             <div style={{ textAlign: 'center' }}>
                 <h1>
-                    DISQUORSE
+                  Welcome to Disquorse!  
                 </h1>
-                Welcome Boi!
             </div>
         </div>
     );

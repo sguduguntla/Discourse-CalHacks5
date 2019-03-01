@@ -11,7 +11,7 @@ class CourseCard extends Component {
         const { course, user } = this.props;
 
         return (
-            <div key={ course._id } className="card" style={{width: "18rem", margin:"10px", height: "30vh"}}>
+            <div key={ course._id } className="card" style={{width: "18rem", margin:"10px", height: "40vh"}}>
                 <div className="card-header">{course.number}
                     <div className="btn-group float-right">
                         <button className="btn btn-link text-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,7 +28,6 @@ class CourseCard extends Component {
                     <a href={`/courses/${course._id}`} className="btn btn-primary">Open</a>
                 </div>
                 <p className="card-text text-right m-3"><i className="fas fa-user-alt fa-sm"></i> {course.numUsers}</p>
-
             </div>
         );
     }
